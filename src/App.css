@@ -1,0 +1,338 @@
+:root {
+  --primary_color: #bb0d2f;
+  --secondary-color: #555353;
+  --input-color: #ededed;
+  --input-color-dark: #dedede;
+}
+.container {
+  height: 100vh;
+  text-align: center;
+  padding: 3rem 6rem;
+}
+
+/* landing page css */
+.landing > div:nth-child(1) {
+  margin-top: 3rem;
+}
+.landing > div:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.landing > div:nth-child(2) h1 {
+  font-size: 60px;
+  width: 40%;
+  color: var(--primary_color);
+}
+.landing > div:nth-child(3) {
+  display: flex;
+  justify-content: center;
+}
+.landing > div:nth-child(3) p {
+  font-size: 24px;
+  width: 30%;
+  color: var(--secondary-color);
+}
+.btn-container {
+  margin-top: 5rem;
+}
+.btn {
+  color: white;
+  background-color: var(--primary_color);
+  width: 400px;
+  height: 60px;
+  border: none;
+  font-size: 20px;
+}
+.btn:disabled {
+  background-color: #7c1227d0;
+}
+.btn:hover:not(:disabled) {
+  background-color: #c21825;
+}
+/* mobile details page css */
+.mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mobile h3,
+.otp h3,
+.member h3 {
+  color: var(--primary_color);
+  margin-top: 10rem;
+  font-size: 30px;
+}
+.mobile p,
+.otp p,
+.member p {
+  font-size: 20px;
+}
+.phone-container {
+  position: relative;
+  margin: 7rem 0;
+  width: 1200px;
+}
+.phone-container input {
+  background-color: var(--input-color) !important;
+  width: 500px !important;
+  height: 70px !important;
+  font-size: 20px !important;
+}
+.phone-container > div:nth-child(1) {
+  justify-content: center;
+}
+.phone-container > div:nth-child(1) > div:nth-child(1) button {
+  background-color: var(--input-color-dark);
+  width: 150px;
+  height: 70px;
+}
+.phone-container > div:nth-child(1) > div:nth-child(1) button img {
+  width: 132px;
+  height: 50px;
+  position: relative;
+  left: -20px;
+}
+.code {
+  position: absolute;
+  top: 3px;
+  left: 30%;
+  pointer-events: none;
+}
+.tick {
+  left: 800px;
+  top: 25px;
+}
+
+/* otp page css */
+.otp-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 7rem;
+  margin-bottom: 10rem;
+}
+
+.otp-input {
+  width: 60px;
+  height: 60px;
+  margin: 0 10px;
+  font-size: 24px;
+  text-align: center;
+  background-color: var(--input-color);
+  border: 0;
+}
+.otp-input:focus {
+  outline: 1px solid var(--primary_color);
+  border: 1px solid var(--primary_color);
+}
+
+/* member details page css */
+.form-container {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.form-container h2 {
+  color: var(--primary_color);
+}
+
+.form-container p {
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 10rem;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+  height: 70px;
+}
+
+.form-input {
+  width: 40%;
+  padding: 10px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.form-input:focus {
+  background-color: #f0f8ff;
+}
+
+.form-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  color: white;
+  background-color: var(--primary_color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10rem;
+  height: 60px;
+}
+
+.form-button:hover {
+  background-color: #c21825;
+}
+
+.gender-toggle {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  width: 40%;
+}
+
+.gender-option {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.gender-option.selected {
+  background-color: var(--primary_color);
+  color: white;
+}
+
+/* privacy page css */
+.privacy-container {
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  background-color: var(--input-color);
+}
+
+.privacy-container h2 {
+  color: var(--primary_color);
+  margin-bottom: 20px;
+}
+
+.privacy-content {
+  text-align: left;
+  margin-bottom: 20px;
+  background-color: var(--input-color-dark);
+  padding: 1rem;
+}
+
+.privacy-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.privacy-content ul {
+  list-style-type: disc;
+  padding-left: 40px;
+  color: #333;
+}
+
+.privacy-content li {
+  margin-bottom: 20px;
+}
+
+/* last page css */
+.last h1 {
+  color: var(--primary_color);
+  font-size: 50px;
+  font-weight: 400;
+}
+.last p {
+  color: var(--secondary-color);
+  font-size: 20px;
+}
+.img-cont {
+  margin-bottom: 5rem;
+}
+.h1-cont {
+  margin-bottom: 5rem;
+}
+
+/* for mobile responsiness */
+@media screen and (max-width: 680px) {
+  .container {
+    padding: 1rem;
+  }
+  .landing > div:nth-child(2) h1 {
+    font-size: 40px;
+    width: 70%;
+  }
+  .landing > div:nth-child(3) p {
+    font-size: 14px;
+    width: 70%;
+  }
+  .btn {
+    width: 200px !important;
+    height: 40px;
+    border: none;
+    font-size: 12px;
+  }
+  .phone-container {
+    margin: 0;
+    width: auto;
+  }
+  .mobile > div > button {
+    width: 300px !important;
+    height: 40px;
+  }
+  .phone-container > div:nth-child(1) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .code {
+    left: 52%;
+  }
+  .tick {
+    left: 80%;
+    top: 110px;
+  }
+  .phone-container input {
+    width: 300px !important;
+  }
+  .otp-input {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    font-size: 18px;
+  }
+  .otp button {
+    width: 300px !important;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .form-input {
+    width: 100%;
+    min-height: 40px;
+    padding: 2px;
+    font-size: 14px;
+  }
+  .privacy-container {
+    width: 100%;
+  }
+}
