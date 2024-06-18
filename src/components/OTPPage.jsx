@@ -35,14 +35,12 @@ export default function OTPPage() {
 
   // next inputs are not able to focus if previous boxes are not filled
   function handleFocus(index){
-    console.log(index);
     let cnt = 0;
     inputs.current.forEach((input)=>{
       if( input.value.length === 1){
         cnt++;
       }
     })
-    console.log(cnt);
     if(index > cnt){
       inputs.current[currentIndex].focus();
     }
