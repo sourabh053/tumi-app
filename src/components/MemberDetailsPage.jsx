@@ -1,12 +1,34 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createMember } from "../APIs/createMember";
 
 export default function MemberDetailsPage() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [dob, setDob] = useState("");
   const [gender, setGender] = useState("male");
-  const nagivate = useNavigate();
+  const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
-    nagivate(`/privacy`);
+    // Form validation here
+
+    const formData = {
+      firstName: firstName,
+      lastName: lastName,
+      dob: dob,
+      gender: gender
+    };
+    // console.log(formData);
+
+    createMember(formData)
+    .then(response => {
+      if(response === undefined) throw new Error("Request Failed");
+      console.log("Member created successfully:", response);
+      navigate(`/privacy`);
+    })
+    .catch(error => {
+      console.error("Error creating member:", error);
+    });
   }
   return (
     <div className="container form-container">
@@ -18,12 +40,16 @@ export default function MemberDetailsPage() {
             type="text"
             placeholder="FIRST NAME"
             className="form-input"
+            value={firstName}
+            onChange={(e)=>setFirstName(e.target.value)}
             required
           />
           <input
             type="text"
             placeholder="LAST NAME"
             className="form-input"
+            value={lastName}
+            onChange={(e)=>setLastName(e.target.value)}
             required
           />
         </div>
@@ -32,6 +58,8 @@ export default function MemberDetailsPage() {
             type="date"
             placeholder="DOB"
             className="form-input"
+            value={dob}
+            onChange={(e)=>setDob(e.target.value)}
             required
           />
           <div className="form-input gender-toggle">
