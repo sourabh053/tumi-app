@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import CommonButton from "./CommonButton";
+import CommonButton from "../components/CommonButton";
 import Logo from "/logo.png";
 
 export default function LandingPage() {

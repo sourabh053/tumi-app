@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import CommonButton from "./CommonButton";
+import CommonButton from "../components/CommonButton";
 
 export default function PrivacyPolicyPage() {
   const nagivate = useNavigate();
