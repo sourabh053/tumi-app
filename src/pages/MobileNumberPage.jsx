@@ -7,6 +7,7 @@ import "react-international-phone/style.css";
 import CommonButton from "../components/CommonButton";
 import { genrateToken } from "../APIs/genrateToken";
 import { genrateOTP } from "../APIs/genrateOTP";
+import { getCustomer } from "../APIs/getCustomer";
 
 const phoneUtil = PhoneNumberUtil.getInstance();
 
@@ -18,36 +19,39 @@ const isPhoneValid = (phone) => {
   }
 };
 export default function MobileNumberPage() {
+  const [flag, setFlag] = useState(false);
   const [phone, setPhone] = useState("");
   const [code, setCode] = useState("");
   const nagivate = useNavigate();
 
   const isValid = isPhoneValid(phone);
   function handleChange(phone, meta) {
+    setFlag(false);
     setCode(meta.country.dialCode);
     setPhone(phone);
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    const identifierValue = phone.slice(1);
+    const phoneNumber = phone.slice(1);
+
     const reqBody = {
       brand: "SUPARADEMO",
       deviceId: "Suparademo123",
       identifierType: "MOBILE",
-      identifierValue: identifierValue,
+      identifierValue: phoneNumber,
     };
     const sessionId = await genrateToken(reqBody);
     const reqBody2 = {
       brand: "SUPARADEMO",
       deviceId: "Suparademo123",
       identifierType: "MOBILE",
-      identifierValue: identifierValue,
+      identifierValue: phoneNumber,
       sessionId: sessionId,
     };
     const isOTPGenrated = await genrateOTP(reqBody2);
-    if(isOTPGenrated){
-      nagivate(`/otp/${phone.slice(code.length + 1)}/${sessionId}`)
-    }else{
+    if (isOTPGenrated) {
+      nagivate(`/otp/${phone.slice(code.length + 1)}/${sessionId}`);
+    } else {
       console.log("Failed to genrate OTP");
     }
   }
@@ -80,6 +84,9 @@ export default function MobileNumberPage() {
           )}
           {!isValid && (
             <div style={{ color: "red" }}>Phone number is not valid</div>
+          )}
+          {isValid && flag && (
+            <div style={{ color: "red" }}>Already a customer!!!</div>
           )}
         </div>
         <CommonButton wfull isDisabled={!isValid}>

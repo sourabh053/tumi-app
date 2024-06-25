@@ -12,12 +12,13 @@ export default function MemberDetailsPage() {
   async function handleSubmit(e) {
     e.preventDefault();
     // Form validation here
-    // const formData = {
-    //   firstName: firstName,
-    //   lastName: lastName,
-    //   dob: dob,
-    //   gender: gender,
-    // };
+    const formData = {
+      firstName: firstName,
+      lastName: lastName,
+      dob: dob,
+      gender: gender,
+    };
+    console.log(formData);
     const reqBody = {
       root: {
         customer: [
@@ -93,7 +94,8 @@ export default function MemberDetailsPage() {
             onChange={(e) => setDob(e.target.value)}
             required
           />
-          <div className="form-input gender-toggle">
+          <label className="form-input gender-toggle">
+            <input type="checkbox" name="gender" id="genderToggle" checked={gender === 'male'}  onChange={()=>{}}/>
             <span
               className={`gender-option ${gender === "male" ? "selected" : ""}`}
               onClick={() => setGender("male")}
@@ -108,7 +110,7 @@ export default function MemberDetailsPage() {
             >
               FEMALE
             </span>
-          </div>
+          </label>
         </div>
         <button type="submit" className="form-button">
           CONTINUE

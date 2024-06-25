@@ -215,6 +215,12 @@
   background-color: var(--primary_color);
   color: white;
 }
+#genderToggle{
+  height: 0;
+  width: 0;
+  opacity: 0;
+  position: absolute;
+}
 
 /* privacy page css */
 .privacy-container {

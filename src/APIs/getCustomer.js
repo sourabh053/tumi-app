@@ -1,10 +1,9 @@
 import axios from "axios";
 
-export async function createMember(reqBody,token,phone) {
+export async function getCustomer(token,phone) {
   try {
-    let responseObj = await axios.post(
-      "https://apac-apigateway.capillarytech.com/mobile/v2/api/customer/add",
-      reqBody,
+    let responseObj = await axios.get(
+      `https://apac-apigateway.capillarytech.com/mobile/v2/api/customer/get/any?phno=91${phone}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -17,10 +16,9 @@ export async function createMember(reqBody,token,phone) {
       }
     );
     const response = responseObj.data;
-    if(response){
+    if(response.status.code === 200){
         return response.customers.customer;
     }else{
-        console.log("request failed");
         return null;
     }
   } catch (e) {

@@ -3,14 +3,15 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import CommonButton from "../components/CommonButton";
 import { validateOTP } from "../APIs/validateOTP";
+import { getCustomer } from "../APIs/getCustomer";
 
-export default function OTPPage() {
+export default function OTPPage({setFullName}) {
   const { phone, sessionId } = useParams();
   const inputs = useRef([]);
   const [isDisable, setIsDisable] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nagivate = useNavigate();
+  const navigate = useNavigate();
   // Focus next input if current one is filled and is a number
   const handleInput = (e, index) => {
     const value = e.target.value;
@@ -61,8 +62,15 @@ export default function OTPPage() {
       sessionId: sessionId,
     };
     const token = await validateOTP(reqBody);
-    sessionStorage.setItem("token", token);
-    nagivate(`/member/${phone}`)
+    const customer = await getCustomer(token, phone);
+    console.log(customer);
+    if(customer){
+      setFullName(customer[0].firstname+" "+customer[0].lastname);
+      navigate(`/welcome`);
+    }else{
+      sessionStorage.setItem("token", token);
+      navigate(`/member/${phone}`);
+    }
   }
   return (
     <div className="container otp">
