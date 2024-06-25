@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/mobile" element={<MobileNumberPage />} />
-        <Route path="/otp/:phone/:sessionId" element={<OTPPage setFullName={setFullName}/>} />
+        <Route path="/otp/:phone" element={<OTPPage setFullName={setFullName}/>} />
         <Route path="/member/:phone" element={<MemberDetailsPage />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
         <Route path="/last" element={<LastPage />} />

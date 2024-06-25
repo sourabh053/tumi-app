@@ -5,9 +5,10 @@ import { validateOTP } from "../APIs/validateOTP";
 import { getCustomer } from "../APIs/getCustomer";
 
 import CommonButton from "../components/CommonButton";
+import Logo from "/logo.png";
 
-export default function OTPPage({setFullName}) {
-  const { phone, sessionId } = useParams();
+export default function OTPPage({ setFullName }) {
+  const { phone } = useParams();
   const inputs = useRef([]);
   const [isDisable, setIsDisable] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,9 +52,10 @@ export default function OTPPage({setFullName}) {
   async function handleSubmit(e) {
     e.preventDefault();
     let otp = "";
-    inputs.current.forEach((input)=>{
+    inputs.current.forEach((input) => {
       otp += input.value;
-    })
+    });
+    const sessionId = sessionStorage.getItem("sessionId");
     const reqBody = {
       brand: "SUPARADEMO",
       deviceId: "Suparademo123",
@@ -65,16 +67,19 @@ export default function OTPPage({setFullName}) {
     const token = await validateOTP(reqBody);
     const customer = await getCustomer(token, phone);
     console.log(customer);
-    if(customer){
-      setFullName(customer[0].firstname+" "+customer[0].lastname);
+    if (customer) {
+      setFullName(customer[0].firstname + " " + customer[0].lastname);
       navigate(`/welcome`);
-    }else{
+    } else {
       sessionStorage.setItem("token", token);
       navigate(`/member/${phone}`);
     }
   }
   return (
     <div className="container otp">
+       <div>
+        <img src={Logo} alt="Company Logo" />
+      </div>
       <div>
         <h3>ENTER THE OTP SENT TO YOUR MOBILE NUMBER</h3>
       </div>

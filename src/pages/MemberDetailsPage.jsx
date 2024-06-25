@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { createMember } from "../APIs/createMember";
 
+import Logo from "/logo.png";
+
 export default function MemberDetailsPage() {
   const { phone } = useParams();
   const [firstName, setFirstName] = useState("");
@@ -64,6 +66,9 @@ export default function MemberDetailsPage() {
   }
   return (
     <div className="container form-container">
+      <div>
+        <img src={Logo} alt="Company Logo" />
+      </div>
       <h2>BECOMING A MEMBER IS EASY</h2>
       <p>Tell us your name</p>
       <form className="form" onSubmit={(e) => handleSubmit(e)}>

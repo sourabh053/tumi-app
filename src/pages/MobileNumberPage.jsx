@@ -8,6 +8,7 @@ import { genrateToken } from "../APIs/genrateToken";
 import { genrateOTP } from "../APIs/genrateOTP";
 
 import CommonButton from "../components/CommonButton";
+import Logo from "/logo.png";
 
 const phoneUtil = PhoneNumberUtil.getInstance();
 
@@ -50,8 +51,9 @@ export default function MobileNumberPage() {
       sessionId: sessionId,
     };
     const isOTPGenrated = await genrateOTP(reqBody2);
+    sessionStorage.setItem("sessionId",sessionId);
     if (isOTPGenrated) {
-      navigate(`/otp/${phone.slice(code.length + 1)}/${sessionId}`);
+      navigate(`/otp/${phone.slice(code.length + 1)}`);
     } else {
       console.log("Failed to genrate OTP");
     }
@@ -59,12 +61,15 @@ export default function MobileNumberPage() {
   return (
     <div className="container mobile">
       <div>
+        <img src={Logo} alt="Company Logo" />
+      </div>
+      <div>
         <h3>HAVE YOU REGISTERED WITH US BEFORE?</h3>
       </div>
       <div>
         <p>Enter your mobile number</p>
       </div>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={(e) => handleSubmit(e)} className="mobile-form">
         <div className="phone-container">
           <PhoneInput
             defaultCountry="th"
