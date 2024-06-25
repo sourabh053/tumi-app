@@ -43,6 +43,7 @@
   height: 60px;
   border: none;
   font-size: 20px;
+  cursor: pointer;
 }
 .btn:disabled {
   background-color: #7c1227d0;
