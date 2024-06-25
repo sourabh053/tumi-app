@@ -417,11 +417,6 @@
   .privacy-container{
     font-size: 14px;
   }
-  .privacy-container .btn-container{
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
-  }
   .last h1{
     font-size: 30px;
   }
