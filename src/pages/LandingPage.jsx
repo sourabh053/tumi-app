@@ -5,7 +5,7 @@ import CommonButton from "../components/CommonButton";
 import Logo from "/logo.png";
 
 export default function LandingPage() {
-  const nagivate = useNavigate();
+  const navigate = useNavigate();
   return (
     <div className="container landing">
       <div>
@@ -17,7 +17,7 @@ export default function LandingPage() {
       <div>
         <p>Become a member and enjoy exclusive perks and benefits</p>
       </div>
-      <CommonButton onClick={() => nagivate("/mobile")} isDisabled={false}>
+      <CommonButton onClick={() => navigate("/mobile")} isDisabled={false}>
         LET'S GET STARTED
       </CommonButton>
     </div>

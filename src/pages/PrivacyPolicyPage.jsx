@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import CommonButton from "../components/CommonButton";
 
 export default function PrivacyPolicyPage() {
-  const nagivate = useNavigate();
+  const navigate = useNavigate();
   return (
     <div className="container privacy-container">
       <h2>PRIVACY POLICY</h2>
@@ -50,7 +50,7 @@ export default function PrivacyPolicyPage() {
           </li>
         </ul>
       </div>
-      <CommonButton is100 isDisabled={false} onClick={() => nagivate("/last")}>
+      <CommonButton is100 isDisabled={false} onClick={() => navigate("/last")}>
         I AGREE
       </CommonButton>
     </div>

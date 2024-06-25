@@ -22,7 +22,7 @@ export default function MobileNumberPage() {
   const [flag, setFlag] = useState(false);
   const [phone, setPhone] = useState("");
   const [code, setCode] = useState("");
-  const nagivate = useNavigate();
+  const navigate = useNavigate();
 
   const isValid = isPhoneValid(phone);
   function handleChange(phone, meta) {
@@ -50,7 +50,7 @@ export default function MobileNumberPage() {
     };
     const isOTPGenrated = await genrateOTP(reqBody2);
     if (isOTPGenrated) {
-      nagivate(`/otp/${phone.slice(code.length + 1)}/${sessionId}`);
+      navigate(`/otp/${phone.slice(code.length + 1)}/${sessionId}`);
     } else {
       console.log("Failed to genrate OTP");
     }
