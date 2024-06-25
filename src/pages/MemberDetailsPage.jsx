@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
 import { createMember } from "../APIs/createMember";
 
 export default function MemberDetailsPage() {
@@ -11,14 +12,13 @@ export default function MemberDetailsPage() {
   const navigate = useNavigate();
   async function handleSubmit(e) {
     e.preventDefault();
-    // Form validation here
-    const formData = {
-      firstName: firstName,
-      lastName: lastName,
-      dob: dob,
-      gender: gender,
-    };
-    console.log(formData);
+    // const formData = {
+    //   firstName: firstName,
+    //   lastName: lastName,
+    //   dob: dob,
+    //   gender: gender,
+    // };
+    // console.log(formData);
     const reqBody = {
       root: {
         customer: [
@@ -55,9 +55,9 @@ export default function MemberDetailsPage() {
         ],
       },
     };
-  const token = sessionStorage.getItem("token");
-    const data = await createMember(reqBody,token,phone);
-    if(data){
+    const token = sessionStorage.getItem("token");
+    const data = await createMember(reqBody, token, phone);
+    if (data) {
       sessionStorage.clear();
       navigate("/privacy");
     }
@@ -73,7 +73,12 @@ export default function MemberDetailsPage() {
             placeholder="FIRST NAME"
             className="form-input"
             value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            onChange={(e) => {
+              const newValue = e.target.value;
+              if (/^[a-zA-Z]*$/.test(newValue)) {
+                setFirstName(newValue);
+              }
+            }}
             required
           />
           <input
@@ -81,7 +86,12 @@ export default function MemberDetailsPage() {
             placeholder="LAST NAME"
             className="form-input"
             value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            onChange={(e) => {
+              const newValue = e.target.value;
+              if (/^[a-zA-Z]*$/.test(newValue)) {
+                setLastName(newValue);
+              }
+            }}
             required
           />
         </div>
@@ -95,7 +105,13 @@ export default function MemberDetailsPage() {
             required
           />
           <label className="form-input gender-toggle">
-            <input type="checkbox" name="gender" id="genderToggle" checked={gender === 'male'}  onChange={()=>{}}/>
+            <input
+              type="checkbox"
+              name="gender"
+              id="genderToggle"
+              checked={gender === "male"}
+              onChange={() => {}}
+            />
             <span
               className={`gender-option ${gender === "male" ? "selected" : ""}`}
               onClick={() => setGender("male")}

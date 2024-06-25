@@ -4,10 +4,10 @@ import { PhoneInput } from "react-international-phone";
 import { useNavigate } from "react-router-dom";
 import "react-international-phone/style.css";
 
-import CommonButton from "../components/CommonButton";
 import { genrateToken } from "../APIs/genrateToken";
 import { genrateOTP } from "../APIs/genrateOTP";
-import { getCustomer } from "../APIs/getCustomer";
+
+import CommonButton from "../components/CommonButton";
 
 const phoneUtil = PhoneNumberUtil.getInstance();
 
@@ -23,6 +23,7 @@ export default function MobileNumberPage() {
   const [phone, setPhone] = useState("");
   const [code, setCode] = useState("");
   const navigate = useNavigate();
+  const phoneLength = phone.slice(code.length+1).length;
 
   const isValid = isPhoneValid(phone);
   function handleChange(phone, meta) {
@@ -82,7 +83,7 @@ export default function MobileNumberPage() {
               </svg>
             </div>
           )}
-          {!isValid && (
+          {!isValid && phoneLength !== 0 &&(
             <div style={{ color: "red" }}>Phone number is not valid</div>
           )}
           {isValid && flag && (

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage";
@@ -6,9 +7,9 @@ import OTPPage from "./pages/OTPPage";
 import MemberDetailsPage from "./pages/MemberDetailsPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import LastPage from "./pages/LastPage";
-import "./App.css";
 import WelcomePage from "./pages/WelcomePage";
-import { useState } from "react";
+
+import "./App.css";
 
 function App() {
   const [fullName, setFullName] = useState('');

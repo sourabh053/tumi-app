@@ -1,6 +1,7 @@
 import React from "react";
-import Logo from "/logo.png";
 import { useNavigate } from "react-router-dom";
+
+import Logo from "/logo.png";
 
 export default function LastPage() {
   const navigate = useNavigate();

@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import CommonButton from "../components/CommonButton";
 import { validateOTP } from "../APIs/validateOTP";
 import { getCustomer } from "../APIs/getCustomer";
+
+import CommonButton from "../components/CommonButton";
 
 export default function OTPPage({setFullName}) {
   const { phone, sessionId } = useParams();
