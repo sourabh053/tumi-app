@@ -61,7 +61,7 @@
   align-items: center;
 }
 .mobile h3,
-.otp h3{
+.otp h3 {
   color: var(--primary_color);
   /* margin-top: 10rem; */
   font-size: 30px;
@@ -280,7 +280,6 @@
   margin-bottom: 5rem;
 }
 
-
 /* for mobile responsiness */
 @media screen and (max-width: 768px) {
   .container {
@@ -298,7 +297,7 @@
     font-size: 16px;
   }
   .mobile-form .btn {
-    width: 400px !important;
+    width: 500px !important;
   }
   .phone-container {
     margin: 0;
@@ -312,19 +311,16 @@
     margin-top: 3rem;
   }
   .phone-container > div:nth-child(1) {
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
+    width: 500px;
   }
   .code {
-    left: 52%;
+    left: 15%;
   }
   .tick {
     left: 85%;
-    top: 75%;
+    top: 35%;
   }
   .phone-container input {
-    text-align: center;
     width: 400px !important;
   }
   .otp h3 {
@@ -340,7 +336,8 @@
   .otp button {
     width: 300px !important;
   }
-  .form, .form-button{
+  .form,
+  .form-button {
     margin-top: 4rem;
   }
   .form-container {
@@ -358,17 +355,17 @@
     padding: 2px 8px;
     font-size: 16px;
   }
-  .gender-option{
+  .gender-option {
     height: 44px;
   }
   .privacy-container {
     width: 100%;
     min-width: auto;
   }
-  .last h1{
+  .last h1 {
     font-size: 40px;
   }
-  .last p{
+  .last p {
     font-size: 17px;
   }
 }
@@ -395,6 +392,16 @@
   .mobile-form .btn {
     width: 300px !important;
   }
+  .phone-container > div:nth-child(1) {
+    width: 300px;
+  }
+  .phone-container > div:nth-child(1) > div:nth-child(1) button {
+    width: 100px;
+  }
+  .phone-container > div:nth-child(1) > div:nth-child(1) button img {
+    width: 75px;
+    height: 30px;
+  }
   .mobile h3,
   .otp h3 {
     font-size: 25px;
@@ -404,32 +411,33 @@
     font-size: 17px;
   }
   .phone-container input {
-    width: 300px !important;
+    width: 200px !important;
   }
-  .form-container{
+  .form-container {
     width: 90%;
     padding: 4rem 1rem;
   }
-  .form-button{
+  .form-button {
     position: fixed;
     bottom: 0;
   }
-  .privacy-container{
+  .privacy-container {
     font-size: 14px;
   }
-  .last h1{
+  .last h1 {
     font-size: 30px;
   }
-  .last p{
+  .last p {
     font-size: 14px;
   }
-  .react-international-phone-country-selector-dropdown{
+  .react-international-phone-country-selector-dropdown {
     width: 250px;
   }
-  .code{
-    top: 9px;
+  .code {
+    top: 11px;
+    font-size: 15px;
   }
-  .tick{
-    top: 75%;
+  .tick {
+    top: 37%;
   }
 }
